@@ -100,14 +100,14 @@ int main(void)
   wk_gpio_config();
 
   /* add user code begin 2 */
-
+  __IO uint32_t time_cnt = 0;
   /* add user code end 2 */
-
+  printf("usart printf example: retarget the c library printf function to the usart\r\n");
   while(1)
   {
     /* add user code begin 3 */
-
     /* add user code end 3 */
+    printf("usart printf counter: %u\r\n",time_cnt++);
   }
 }
 
