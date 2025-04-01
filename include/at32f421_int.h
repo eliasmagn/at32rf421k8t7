@@ -1,4 +1,3 @@
-/* add user code begin Header */
 /**
   **************************************************************************
   * @file     at32f421_int.h
@@ -22,7 +21,6 @@
   *
   **************************************************************************
   */
-/* add user code end Header */
 
 /* define to prevent recursive inclusion -------------------------------------*/
 #ifndef __AT32F421_INT_H
@@ -35,27 +33,11 @@ extern "C" {
 /* includes ------------------------------------------------------------------*/
 #include "at32f421.h"
 
-/* private includes ----------------------------------------------------------*/
-/* add user code begin private includes */
-
-/* add user code end private includes */
-
 /* exported types ------------------------------------------------------------*/
-/* add user code begin exported types */
-
-/* add user code end exported types */
-
 /* exported constants --------------------------------------------------------*/
-/* add user code begin exported constants */
-
-/* add user code end exported constants */
-
 /* exported macro ------------------------------------------------------------*/
-/* add user code begin exported macro */
-
-/* add user code end exported macro */
-
 /* exported functions ------------------------------------------------------- */
+
 void NMI_Handler(void);
 void HardFault_Handler(void);
 void MemManage_Handler(void);
@@ -64,15 +46,11 @@ void UsageFault_Handler(void);
 void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
-
 void SysTick_Handler(void);
-
-/* add user code begin exported functions */
-
-/* add user code end exported functions */
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif
+

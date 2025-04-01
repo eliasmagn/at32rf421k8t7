@@ -1,41 +1,44 @@
 /**
-  ******************************************************************************
-  * @file    at32f421_clock.h
-  * @brief   Prototypen und Definitionen für die System-Clock-Konfiguration.
+  **************************************************************************
+  * @file     at32f421_clock.h
+  * @brief    header file of clock program
+  **************************************************************************
+  *                       Copyright notice & Disclaimer
   *
-  *          Die hier definierten Clock-Werte orientieren sich an der Reset-Konfiguration:
-  *          Interner 48 MHz Oszillator, geteilt durch 6 → 8 MHz.
-  *          Der externe Oszillator (HEXT) wird als 8 MHz angenommen, kommt aber beim xy6020l nicht zum Einsatz.
-  ******************************************************************************
+  * The software Board Support Package (BSP) that is made available to
+  * download from Artery official website is the copyrighted work of Artery.
+  * Artery authorizes customers to use, copy, and distribute the BSP
+  * software and its related documentation for the purpose of design and
+  * development in conjunction with Artery microcontrollers. Use of the
+  * software is governed by this copyright notice and the following disclaimer.
+  *
+  * THIS SOFTWARE IS PROVIDED ON "AS IS" BASIS WITHOUT WARRANTIES,
+  * GUARANTEES OR REPRESENTATIONS OF ANY KIND. ARTERY EXPRESSLY DISCLAIMS,
+  * TO THE FULLEST EXTENT PERMITTED BY LAW, ALL EXPRESS, IMPLIED OR
+  * STATUTORY OR OTHER WARRANTIES, GUARANTEES OR REPRESENTATIONS,
+  * INCLUDING BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY,
+  * FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+  *
+  **************************************************************************
   */
 
-  #ifndef __AT32F421_CLOCK_H
-  #define __AT32F421_CLOCK_H
-  
-  #ifdef __cplusplus
-   extern "C" {
-  #endif
-  
-  #include "at32f421.h"
-  
-  /* Clock-Werte (anpassbar an euer Board):
-     - HICK_VALUE: Intern 48 MHz geteilt durch 6 → 8 MHz nach Reset
-     - HEXT_VALUE: Angenommener externer Oszillatorwert (hier 8 MHz; typischer Bereich 4–25 MHz)
-  */
-  #define HICK_VALUE ((uint32_t)8000000)
-  #define HEXT_VALUE ((uint32_t)8000000)
-  
-  /**
-    * @brief  Konfiguriert die Systemuhr.
-    *
-    *         Aktiviert den internen Oszillator (HICK) und aktualisiert die SystemCoreClock-Variable.
-    *         Da beim xy6020l kein externer Takt genutzt wird, erfolgt hier keine HEXT-Konfiguration.
-    */
-  void system_clock_config(void);
-  
-  #ifdef __cplusplus
-  }
-  #endif
-  
-  #endif /* __AT32F421_CLOCK_H */
-  
+/* define to prevent recursive inclusion -------------------------------------*/
+#ifndef __AT32F421_CLOCK_H
+#define __AT32F421_CLOCK_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* includes ------------------------------------------------------------------*/
+#include "at32f421.h"
+
+/* exported functions ------------------------------------------------------- */
+void system_clock_config(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __AT32F421_CLOCK_H */
+

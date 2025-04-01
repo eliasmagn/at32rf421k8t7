@@ -1,4 +1,3 @@
-/* add user code begin Header */
 /**
   **************************************************************************
   * @file     at32f421_int.c
@@ -22,50 +21,17 @@
   *
   **************************************************************************
   */
-/* add user code end Header */
 
 /* includes ------------------------------------------------------------------*/
 #include "at32f421_int.h"
 
-/* private includes ----------------------------------------------------------*/
-/* add user code begin private includes */
+/** @addtogroup AT32F421_periph_examples
+  * @{
+  */
 
-/* add user code end private includes */
-
-/* private typedef -----------------------------------------------------------*/
-/* add user code begin private typedef */
-
-/* add user code end private typedef */
-
-/* private define ------------------------------------------------------------*/
-/* add user code begin private define */
-
-/* add user code end private define */
-
-/* private macro -------------------------------------------------------------*/
-/* add user code begin private macro */
-
-/* add user code end private macro */
-
-/* private variables ---------------------------------------------------------*/
-/* add user code begin private variables */
-
-/* add user code end private variables */
-
-/* private function prototypes --------------------------------------------*/
-/* add user code begin function prototypes */
-
-/* add user code end function prototypes */
-
-/* private user code ---------------------------------------------------------*/
-/* add user code begin 0 */
-
-/* add user code end 0 */
-
-/* external variables ---------------------------------------------------------*/
-/* add user code begin external variables */
-
-/* add user code end external variables */
+/** @addtogroup 421_USART_printf
+  * @{
+  */
 
 /**
   * @brief  this function handles nmi exception.
@@ -74,13 +40,6 @@
   */
 void NMI_Handler(void)
 {
-  /* add user code begin NonMaskableInt_IRQ 0 */
-
-  /* add user code end NonMaskableInt_IRQ 0 */
-
-  /* add user code begin NonMaskableInt_IRQ 1 */
-
-  /* add user code end NonMaskableInt_IRQ 1 */
 }
 
 /**
@@ -90,15 +49,9 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
-  /* add user code begin HardFault_IRQ 0 */
-
-  /* add user code end HardFault_IRQ 0 */
   /* go to infinite loop when hard fault exception occurs */
-  while (1)
+  while(1)
   {
-    /* add user code begin W1_HardFault_IRQ 0 */
-
-    /* add user code end W1_HardFault_IRQ 0 */
   }
 }
 
@@ -109,15 +62,9 @@ void HardFault_Handler(void)
   */
 void MemManage_Handler(void)
 {
-  /* add user code begin MemoryManagement_IRQ 0 */
-
-  /* add user code end MemoryManagement_IRQ 0 */
   /* go to infinite loop when memory manage exception occurs */
-  while (1)
+  while(1)
   {
-    /* add user code begin W1_MemoryManagement_IRQ 0 */
-
-    /* add user code end W1_MemoryManagement_IRQ 0 */
   }
 }
 
@@ -128,15 +75,9 @@ void MemManage_Handler(void)
   */
 void BusFault_Handler(void)
 {
-  /* add user code begin BusFault_IRQ 0 */
-
-  /* add user code end BusFault_IRQ 0 */
   /* go to infinite loop when bus fault exception occurs */
-  while (1)
+  while(1)
   {
-    /* add user code begin W1_BusFault_IRQ 0 */
-
-    /* add user code end W1_BusFault_IRQ 0 */
   }
 }
 
@@ -147,15 +88,9 @@ void BusFault_Handler(void)
   */
 void UsageFault_Handler(void)
 {
-  /* add user code begin UsageFault_IRQ 0 */
-
-  /* add user code end UsageFault_IRQ 0 */
   /* go to infinite loop when usage fault exception occurs */
-  while (1)
+  while(1)
   {
-    /* add user code begin W1_UsageFault_IRQ 0 */
-
-    /* add user code end W1_UsageFault_IRQ 0 */
   }
 }
 
@@ -166,12 +101,6 @@ void UsageFault_Handler(void)
   */
 void SVC_Handler(void)
 {
-  /* add user code begin SVCall_IRQ 0 */
-
-  /* add user code end SVCall_IRQ 0 */
-  /* add user code begin SVCall_IRQ 1 */
-
-  /* add user code end SVCall_IRQ 1 */
 }
 
 /**
@@ -181,12 +110,6 @@ void SVC_Handler(void)
   */
 void DebugMon_Handler(void)
 {
-  /* add user code begin DebugMonitor_IRQ 0 */
-
-  /* add user code end DebugMonitor_IRQ 0 */
-  /* add user code begin DebugMonitor_IRQ 1 */
-
-  /* add user code end DebugMonitor_IRQ 1 */
 }
 
 /**
@@ -196,12 +119,6 @@ void DebugMon_Handler(void)
   */
 void PendSV_Handler(void)
 {
-  /* add user code begin PendSV_IRQ 0 */
-
-  /* add user code end PendSV_IRQ 0 */
-  /* add user code begin PendSV_IRQ 1 */
-
-  /* add user code end PendSV_IRQ 1 */
 }
 
 /**
@@ -211,16 +128,12 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-  /* add user code begin SysTick_IRQ 0 */
-
-  /* add user code end SysTick_IRQ 0 */
-
-
-  /* add user code begin SysTick_IRQ 1 */
-
-  /* add user code end SysTick_IRQ 1 */
 }
 
-/* add user code begin 1 */
+/**
+  * @}
+  */
 
-/* add user code end 1 */
+/**
+  * @}
+  */
