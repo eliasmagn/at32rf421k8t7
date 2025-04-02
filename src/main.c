@@ -16,7 +16,7 @@
 #include "wk_usart.h"
 #include "wk_gpio.h"
 #include "wk_system.h"
-#include "wk_dma.h"  // Neu: DMA-Funktionen aus dem Projekt
+#include "wk_dma.h"  
 
 int main(void)
 {

@@ -41,8 +41,8 @@ void wk_adc1_init(void)
   /* ADC-Kanalkonfiguration:
      Annahme: PB0 -> ADC_CHANNEL_14 (Rauschmessung)
               PB1 -> ADC_CHANNEL_15 (Hauptsignal) */
-  adc_ordinary_channel_set(ADC1, ADC_CHANNEL_14, 1, ADC_SAMPLETIME_1_5);
-  adc_ordinary_channel_set(ADC1, ADC_CHANNEL_15, 2, ADC_SAMPLETIME_1_5);
+  adc_ordinary_channel_set(ADC1, ADC_CHANNEL_8, 1, ADC_SAMPLETIME_1_5);
+  adc_ordinary_channel_set(ADC1, ADC_CHANNEL_9, 2, ADC_SAMPLETIME_1_5);
 
   /* Software-Trigger für den ADC einstellen */
   adc_ordinary_conversion_trigger_set(ADC1, ADC12_ORDINARY_TRIG_SOFTWARE, TRUE);
