@@ -1,7 +1,7 @@
 /* add user code begin Header */
 /**
   **************************************************************************
-  * @file     wk_adc.h
+  * @file     wk_dma.h
   * @brief    header file of work bench config
   **************************************************************************
   *                       Copyright notice & Disclaimer
@@ -25,8 +25,8 @@
 /* add user code end Header */
 
 /* define to prevent recursive inclusion -----------------------------------*/
-#ifndef __WK_ADC_H
-#define __WK_ADC_H
+#ifndef __WK_DMA_H
+#define __WK_DMA_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -57,10 +57,13 @@ extern "C" {
 
 /* exported functions ------------------------------------------------------- */
 
-  /* init adc1 function. */
-  void wk_adc1_init(void);
-  void dma_adc_config(void);
-  int32_t process_adc_data(void);
+  /* init dma1 channel1 */
+  void wk_dma1_channel1_init(void);
+
+  /* config dma channel transfer parameter */
+  /* user need to modify parameters memory_base_addr and buffer_size */
+  void wk_dma_channel_config(dma_channel_type* dmax_channely, uint32_t peripheral_base_addr, uint32_t memory_base_addr, uint16_t buffer_size);
+
 /* add user code begin exported functions */
 
 /* add user code end exported functions */

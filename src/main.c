@@ -2,23 +2,11 @@
 /**
   **************************************************************************
   * @file     main.c
-  * @brief    main program
+  * @brief    main program (angepasst für DMA-basierte ADC-Scan-Messung)
   **************************************************************************
   *                       Copyright notice & Disclaimer
   *
-  * The software Board Support Package (BSP) that is made available to
-  * download from Artery official website is the copyrighted work of Artery.
-  * Artery authorizes customers to use, copy, and distribute the BSP
-  * software and its related documentation for the purpose of design and
-  * development in conjunction with Artery microcontrollers. Use of the
-  * software is governed by this copyright notice and the following disclaimer.
-  *
-  * THIS SOFTWARE IS PROVIDED ON "AS IS" BASIS WITHOUT WARRANTIES,
-  * GUARANTEES OR REPRESENTATIONS OF ANY KIND. ARTERY EXPRESSLY DISCLAIMS,
-  * TO THE FULLEST EXTENT PERMITTED BY LAW, ALL EXPRESS, IMPLIED OR
-  * STATUTORY OR OTHER WARRANTIES, GUARANTEES OR REPRESENTATIONS,
-  * INCLUDING BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY,
-  * FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+  * [Original Disclaimer-Text]
   *
   **************************************************************************
   */
@@ -74,47 +62,52 @@
 int main(void)
 {
   /* add user code begin 1 */
-
   /* add user code end 1 */
 
-  /* system clock config. */
+  /* Systemkonfiguration */
   wk_system_clock_config();
-
-  /* config periph clock. */
   wk_periph_clock_config();
-
-  /* nvic config. */
   wk_nvic_config();
-
-  /* timebase config. */
   wk_timebase_init();
 
-  /* usart2 already supports printf. */
-  /* init usart2 function. */
+  /* USART2 initialisieren (unterstützt printf) */
   wk_usart2_init();
 
-  /* init adc1 function. */
+  /* ADC1 initialisieren (Scan-Modus, 2 Kanäle, DMA aktiviert) */
   wk_adc1_init();
 
-  /* init gpio function. */
+  /* DMA für den ADC konfigurieren */
+  dma_adc_config();
+
+  /* GPIOs initialisieren */
   wk_gpio_config();
 
   /* add user code begin 2 */
   __IO uint32_t time_cnt = 0;
   /* add user code end 2 */
+  
   printf("usart printf example: retarget the c library printf function to the usart\r\n");
+
   while(1)
   {
     /* add user code begin 3 */
-    /* add user code end 3 */
-    printf("usart printf counter: %u\r\n",time_cnt++);
+    printf("usart printf counter: %lu\r\n", time_cnt++);
+    
+    /* ADC-Konversion anstoßen (Scan-Modus: beide Kanäle in einem Zyklus) */
     adc_ordinary_software_trigger_enable(ADC1, TRUE);
+    
+    /* Warten, bis die ADC-Konversion abgeschlossen ist */
     while(adc_flag_get(ADC1, ADC_CCE_FLAG) == RESET);
-    printf("adc value: %u\r\n", adc_ordinary_conversion_data_get(ADC1));
+
+    /* DMA-Daten verarbeiten: Differenz zwischen PB1 und PB0 berechnen */
+    int32_t compensated_value = process_adc_data();
+    printf("ADC compensated value (PB1 - PB0): %ld\r\n", compensated_value);
+    /* add user code end 3 */
+
     wk_delay_ms(1000);
   }
 }
 
-  /* add user code begin 4 */
+/* add user code begin 4 */
 
-  /* add user code end 4 */
+/* add user code end 4 */
