@@ -26,6 +26,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "wk_dma.h"
+#include <at32f421_dma.h>
 
 /* add user code begin 0 */
 
