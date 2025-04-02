@@ -108,6 +108,7 @@ int main(void)
     /* add user code begin 3 */
     /* add user code end 3 */
     printf("usart printf counter: %u\r\n",time_cnt++);
+    wk_delay_ms(1000);
   }
 }
 
