@@ -108,6 +108,9 @@ int main(void)
     /* add user code begin 3 */
     /* add user code end 3 */
     printf("usart printf counter: %u\r\n",time_cnt++);
+    adc_ordinary_software_trigger_enable(ADC1, TRUE);
+    while(adc_flag_get(ADC1, ADC_CCE_FLAG) == RESET);
+    printf("adc value: %u\r\n", adc_ordinary_conversion_data_get(ADC1));
     wk_delay_ms(1000);
   }
 }
